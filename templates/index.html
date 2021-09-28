@@ -1,52 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <title>Crossword Hack</title>
 </head>
+
 <body>
     <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
         <div class="container">
             <a class="navbar-brand text-primary h1">
                 <img src="https://cdn-icons-png.flaticon.com/512/2133/2133125.png" height="32">
-            Crossword Hack</a>
+                Crossword Hack</a>
         </div>
     </nav>
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-md-6 mt-5">
-                <h4>
-                    "Crossword Hack" เป็นโปรแกรมที่สามารถหาคำตอบที่เป็นไปได้ จากตัวอักษรที่มีความหมายในพจนานุกรมภาษาอังกฤษ
+                <h1 class="text-dark">
+                    Crossword Hack
+                </h1>
+                <h4 class="text-secondary">
+                    เป็นโปรแกรมที่สามารถหาคำตอบที่เป็นไปได้
+                    จากตัวอักษรที่มีความหมายในพจนานุกรมภาษาอังกฤษ
                     ป้อนค่าตัวอักษรแบบติดกันได้เลย เช่น "abcde"
                 </h4>
+            </div>
+            <div class="col-md-6 mt-5 text-center">
+                <img src="https://media.wired.com/photos/592663b6f3e2356fd800914e/master/w_2560%2Cc_limit/Scrabble-610653588.gif" height="200">
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 mt-5">
                 <h1 class="text-secondary">โปรดใส่ตัวอักษร</h1>
                 <form action="addWord" method="GET">
-                {% csrf_token %}
+                    {% csrf_token %}
                     <div class="form-group">
-                        <input type="text" name="name" class="form-control"  placeholder="Enter letter">
+                        <input type="text" name="name" class="form-control" placeholder="Enter letter">
                         <div class="mt-3">
-                        <a class="text-danger">*โปรดระวังการใส่ตัวอักษรหลายตัว ระบบจะยิ่งทำงานหนักขึ้น</a>
+                            <a class="text-danger">*โปรดระวังการใส่ตัวอักษรหลายตัว ระบบจะยิ่งทำงานหนักขึ้น</a>
                         </div>
                     </div>
                     <div class="mt-2 d-inline-block">
                         <input type="submit" value="Submit" class="btn btn-primary">
                     </div>
                     <div class="mt-2 d-inline-block">
-                        <input type="submit" value="Clear" class="btn btn-secondary">
+                        <input type="reset" value="Clear" class="btn btn-secondary">
                     </div>
                 </form>
             </div>
             <div class="col-md-6 mt-5">
-                <h1 class=" text-secondary">ผลลัพธ์</h1>
-                <div class="border ">
+                <h1 class=" text-secondary d-inline">ผลลัพธ์</h1>
+                <div class="border mt-2">
                     <h3 class="text-secondary ml-4 mt-3">จากตัวอักษร {{letter_input}}</h3>
                     {% for word in wordlist %}
                     <h2 class="ml-4 h4 text-secondary mb-3 " href="#">{{word}}</h2>
@@ -55,17 +65,32 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <div class=></div>
+    <div class="row">
+        <div class="col-md-12 mt-5">
+            <div>
+                <h5 class="text-center text-secondary">อ้างอิงจาก Google Translate และ PyDicionary</h5>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-light text-center text-lg-start mt-5">
+        <hr class="footer-divider">
+        <!-- Copyright -->
+        <div class="text-center p-3" >
+            © 2021 Copyright:
+            <a class="text-dark" href="https://mdbootstrap.com/">FERROR02</a>
+        </div>
+            <!-- Copyright -->
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
